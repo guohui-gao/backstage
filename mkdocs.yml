@@ -16,6 +16,6 @@ plugins:
   - search
       separator: '[\s\-\.]+'
   - techdocs-core
-#  - redirects:
-#      redirect_maps:
-#        'text.md': 'test.md'
+  - redirects:
+      redirect_maps:
+        'text.md': 'test.md'
