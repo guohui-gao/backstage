@@ -64,6 +64,17 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
     apt-get install -y --no-install-recommends libsqlite3-dev
 
+# Install mkdocs and mkdocs-techdocs-core
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \ 
+    apt-get update && apt-get install -y python3 python3-pip python3-venv
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+RUN pip install --upgrade pip && pip install mkdocs-techdocs-core==1.2.2
+RUN pip install mkdocs-redirects
+
+
 # From here on we use the least-privileged `node` user to run the backend.
 USER node
 

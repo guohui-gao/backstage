@@ -1,0 +1,21 @@
+site_name: 'example-docs'
+site_description: 'Description of the site'
+site-author: 'Author'
+docs_dir: docs
+# site_url: ./site
+# config_dir: .
+# repo_name:
+# repo_url:
+# edit_uri: 
+
+nav:
+  - Home: index.md
+  - Test: text.md
+
+plugins:
+  - search
+      separator: '[\s\-\.]+'
+  - techdocs-core
+#  - redirects:
+#      redirect_maps:
+#        'text.md': 'test.md'
