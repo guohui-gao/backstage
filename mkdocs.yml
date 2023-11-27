@@ -13,7 +13,7 @@ nav:
   - Test: text.md
 
 plugins:
-  - search
+  - search:
       separator: '[\s\-\.]+'
   - techdocs-core
   - redirects:
