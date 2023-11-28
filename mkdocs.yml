@@ -19,7 +19,7 @@ plugins:
   #- redirects:
   #    redirect_maps:
   #      'text.md': 'test.md'
-  #- autorefs
+  - autorefs
   #- literate-nav:
   #    nav_file: README.md
   #    implicit_index: true
