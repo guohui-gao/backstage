@@ -72,8 +72,7 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN pip install --upgrade pip && pip install mkdocs-techdocs-core==1.2.3
-RUN pip install mkdocs-redirects mkdocs-autorefs mkdocs-same-dir
-
+RUN pip install mkdocs-redirects mkdocs-autorefs mkdocs-same-dir mkdocs-exclude
 
 # From here on we use the least-privileged `node` user to run the backend.
 USER node

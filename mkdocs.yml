@@ -1,7 +1,8 @@
 site_name: 'example-docs'
 site_description: 'Description of the site'
 # site-author: 'Guest'
-#docs_dir: docs
+docs_dir: .
+site_dir: site
 # site_url: ./site
 # config_dir: .
 # repo_name:
@@ -9,17 +10,28 @@ site_description: 'Description of the site'
 # edit_uri: 
 
 nav:
-  - Home: index.md
-  - Test: text.md
+  - Home: README.md
+  - Text: docs/text.md
+  - Index: docs/index.md
 
 plugins:
   - techdocs-core
   - search:
       separator: '[\s\-\.]+'
-  - redirects:
-      redirect_maps:
-        'text.md': 'test.md'
+  #- redirects:
+  #    redirect_maps:
+  #      'text.md': 'test.md'
   - autorefs
+  - same-dir
+  - exclude:
+      glob:
+        - examples/*
+        - node_modules/*
+        - packages/*
+        - plugins/*
+        - site/*
+      regex:
+        - '^\.(.*)$'
   #- literate-nav:
   #    nav_file: README.md
   #    implicit_index: true
