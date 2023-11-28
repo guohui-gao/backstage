@@ -71,8 +71,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-RUN pip install --upgrade pip && pip install mkdocs-techdocs-core==1.2.2
-RUN pip install mkdocs-redirects
+RUN pip install --upgrade pip && pip install mkdocs-techdocs-core==1.2.3
+RUN pip install mkdocs-redirects mkdocs-autorefs mkdocs-same-dir
 
 
 # From here on we use the least-privileged `node` user to run the backend.
@@ -99,7 +99,6 @@ COPY --chown=node:node app-config.local.yaml ./
 
 # This switches many Node.js dependencies to production mode.
 ENV NODE_ENV production
-RUN mkdir aaa
 ARG SOURCE_BRANCH
 ARG SOURCE_COMMIT
 ENV APP_CONFIG_app_versionBranch $SOURCE_BRANCH
