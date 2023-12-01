@@ -5,7 +5,6 @@ site_dir: site
 
 nav:
   - Home: README.md
-  - Text: docs/text.md
   - Index: docs/index.md
 
 plugins:
