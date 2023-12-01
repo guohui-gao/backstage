@@ -6,7 +6,7 @@ metadata:
   # Example for optional annotations
   annotations:
     github.com/project-slug: guohui-gao/backstage
-    backstage.io/techdocs-ref: url:https://github.com/guohui-gao/backstage/blob/mkdocs/mkdocs.yml
+    backstage.io/techdocs-ref: url:https://github.com/guohui-gao/backstage/blob/mkdocs/
     #backstage.io/techdocs-ref: dir:.
 
 spec:
