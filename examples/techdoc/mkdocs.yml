@@ -1,0 +1,21 @@
+site_name: 'Techdoc Demo'
+site_description: 'Demo Techdoc'
+docs_dir: .
+
+nav:
+  - Home: README.md
+
+plugins:
+  - techdocs-core
+  #- search:
+  #    separator: '[\s\-\.]+'
+  - same-dir
+  - exclude:
+      glob:
+        - node_modules/*
+        - packages/*
+        - plugins/*
+        - site/*
+      regex:
+        - '^\.(.*)$'
+        
