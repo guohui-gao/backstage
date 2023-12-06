@@ -18,6 +18,10 @@ import OpenShiftIcon from './icons/OpenShiftIcon'
 import JiraIcon from './icons/JiraIcon';
 import ArgoIcon from './icons/ArgoIcon';
 import GitHubIcon from './icons/GitHubIcon';
+// announcements
+import { AnnouncementsCard } from '@k-phoen/backstage-plugin-announcements';
+
+
 
 const clockConfigs: ClockConfig[] = [
     {
@@ -82,7 +86,7 @@ const defaultConfig = [
         height: 5,
     },
     {
-        component: 'HomePageRandomJoke',
+        component: 'AnnouncementsCard',
         x: 6,
         y: 2,
         width: 6,
@@ -102,6 +106,7 @@ export const HomePage = () => {
             </Header>
             <Content>
                 <CustomHomepageGrid config={defaultConfig}>
+                    <AnnouncementsCard max={3} />
                     <HomePageSearchBar />
                     <HomePageStarredEntities title='Starred Entities' />
                     <HomePageRecentlyVisited numVisitsOpen={5} numVisitsTotal={10} />

@@ -37,6 +37,9 @@ import { VersionSettings } from './components/user-settings/version';
 // Home Page
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
+// AnnouncementsPage
+import { AnnouncementsPage } from '@k-phoen/backstage-plugin-announcements';
+
 
 const app = createApp({
   apis,
@@ -65,6 +68,7 @@ const routes = (
     <Route path="/" element={<HomepageCompositionRoot />}>
       <HomePage/>
     </Route>
+    <Route path="/announcements" element={<AnnouncementsPage />} />
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"
