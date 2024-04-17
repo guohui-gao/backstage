@@ -35,6 +35,7 @@ COPY --from=packages --chown=node:node /app .
 
 RUN --mount=type=cache,target=/home/node/.cache/yarn,sharing=locked,uid=1000,gid=1000 \
     yarn install --frozen-lockfile --network-timeout 600000
+#RUN yarn install --frozen-lockfile --network-timeout 600000
 
 COPY --chown=node:node . .
 
@@ -66,6 +67,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 
 # From here on we use the least-privileged `node` user to run the backend.
 USER node
+# add folder for otel-auto-instrumentation
+WORKDIR /aaa-bbb-ccc
 
 # This should create the app dir as `node`.
 # If it is instead created as `root` then the `tar` command below will fail: `can't create directory 'packages/': Permission denied`.

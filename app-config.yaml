@@ -1,6 +1,8 @@
 app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
+  versionCommit: "test"
+  versionBranch: "test"
 
 organization:
   name: My Company
@@ -19,6 +21,7 @@ backend:
     # host: 127.0.0.1
   csp:
     connect-src: ["'self'", 'http:', 'https:']
+    frame-src: ['https://www.youtube.com', 'youtube.com', 'www.google.com.hk']
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
@@ -43,7 +46,7 @@ integrations:
     #   apiBaseUrl: https://ghe.example.net/api/v3
     #   token: ${GHE_TOKEN}
 
-proxy:
+#proxy:
   ### Example for how to add a proxy endpoint for the frontend.
   ### A typical reason to do this is to handle HTTPS and CORS for internal services.
   # endpoints:
@@ -66,7 +69,7 @@ auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers: {}
 
-scaffolder:
+# scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:

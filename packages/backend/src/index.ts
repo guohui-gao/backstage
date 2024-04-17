@@ -31,6 +31,15 @@ import search from './plugins/search';
 import { PluginEnvironment } from './types';
 import { ServerPermissionClient } from '@backstage/plugin-permission-node';
 import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
+import { metricsHandler } from './metrics';
+
+const client = require('prom-client');
+const collectDefaultMetrics = client.collectDefaultMetrics;
+const Registry = client.Registry;
+const register = new Registry();
+collectDefaultMetrics({ register });
+
+//import './instrumentation'; // Setup the OpenTelemetry instrumentation
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
@@ -72,6 +81,8 @@ function makeCreateEnv(config: Config) {
 }
 
 async function main() {
+  
+
   const config = await loadBackendConfig({
     argv: process.argv,
     logger: getRootLogger(),
@@ -94,14 +105,15 @@ async function main() {
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
 
+
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
   apiRouter.use(notFoundHandler());
 
   const service = createServiceBuilder(module)
     .loadConfig(config)
     .addRouter('/api', apiRouter)
+    .addRouter('', metricsHandler())
     .addRouter('', await app(appEnv));
-
   await service.start().catch(err => {
     console.log(err);
     process.exit(1);

@@ -38,6 +38,9 @@ import { VersionSettings } from './components/user-settings/version';
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 
+// Training Page
+import {TrainingPage} from './components/training/TrainingPage'
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -105,6 +108,8 @@ const routes = (
     </Route>
 
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/training" element={<TrainingPage />} />
+
   </FlatRoutes>
 );
 
